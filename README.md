@@ -32,5 +32,11 @@ with a little help from ubuntu LAMP for the query example,
 
 
 Lets Get started
-____________________
+-------------------
+
+cd ~
+Git Clone https://github.com/BitHighlander/vaurum-coding-excerise
+npm install
+
+
 
