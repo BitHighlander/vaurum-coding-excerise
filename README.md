@@ -78,3 +78,19 @@ sudo nano server.js
 * insert credentials into server.js
 
 
+Read to Run
+-------------
+
+```
+node server.js
+```
+
+Let this run a bit and fill up with some data
+
+
+
+Ready to query the data!
+-------------------------
+
+
+
