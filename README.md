@@ -42,7 +42,7 @@ sudo apt-get install tasksel
 sudo tasksel
 ````
 
-Install LAMP and set up your MySQL database
+* Install LAMP and set up your MySQL database
 
 
 ````
@@ -55,22 +55,19 @@ npm config set registry http://registry.npmjs.org/
 npm install
 ```
 
-We are now ready to set the mysql config
+* We are now ready to set the mysql config
 
-open browser too
+* open browser http://*yourip*/phpmyadmin
 
+* copy/paste blockerDB.sql
 
-*your ip*/phpmyadmin
+* create db
 
-copy/paste blockerDB.sql
+* verify
 
-create db
+* go to privileges
 
-verify
-
-go to privileges
-
-add new user
+* add new user to DB
 
 username: blocker
 pw: ***yousetthis***
@@ -78,7 +75,6 @@ pw: ***yousetthis***
 ```
 sudo nano server.js
 ```
-
-insert credentials
+* insert credentials into server.js
 
 
