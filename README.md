@@ -48,7 +48,27 @@ sudo apt-get install nodejs
 sudo apt-get install npm
 cd ~
 Git Clone https://github.com/BitHighlander/vaurum-coding-excerise
+npm config set registry http://registry.npmjs.org/
 npm install
 ```
+
+We are now ready to set the mysql config
+browse
+*your ip*/phpmyadmin
+
+copy/paste blockerDB.sql
+create db
+verify
+go to privileges
+add new user
+
+username: blocker
+pw: ***yousetthis***
+
+```
+sudo nano server.js
+```
+
+insert credentials
 
 
