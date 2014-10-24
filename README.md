@@ -95,39 +95,61 @@ Ready to query the data!
 
 **get block number from txhash**
 
+**get block number from txid**
+
+**get total bitcoin sent in a transaction**
+
+**get list of confirmed transactions in a block by txid**
+
+**get total bitcoin output of any confirmed or unconfirmed transactions in a block by txid**
+
+**get script of bitcoin output any transaction (This requires a full chain or additional API to verify script)**
+
+Examples
+
 $txs = "SELECT * FROM txs WHERE hash = '$entry'"
 
 get txindex
 
 $txs->tx_index'
 
-is this transaction confirmed? (included in a block)
-
-**get block number from txid**
+is this transaction confirmed? (included in a block) check txid agienst confirmed_transactions
 
 $confirmation_block = $con->query("SELECT * FROM confirmed_tx WHERE tx_index = '$txs->tx_index'")->fetch();
 
 if found, we now have the entire block data if empty this is an unconfirmed transaction
 
 
-**get total bitcoin send in a transaction**
 
 Avaible Block data
 --------------------
 
- hash:response.x.hash,
+        hash:response.x.hash,
+        
         nTx: response.x.nTx,
+        
         totalBTCSent: response.x.totalBTCSent,
+        
         estimatedBTCSent: response.x.estimatedBTCSent,
+        
         reward: response.x.reward,
+        
         size: response.x.size,
+        
         blockIndex: response.x.blockIndex,
+        
         prevBlockIndex: response.x.prevBlockIndex,
+        
         height: response.x.height,
+        
         mrklRoot: response.x.mrklRoot,
+        
         version: response.x.version,
+        
         time: response.x.time,
+        
         bits: response.x.bits,
+        
         nonce: response.x.nonce	
 
 Each block contains a list of confirmed transactions, To view what transactions got confirmed and what didnt you can take a differnce from txids in table txs vr txids in table transaction_confirmed
@@ -138,9 +160,14 @@ Avaible Transaction data
 
  hash:response.x.hash,
         btc_sent:response.amount,
+        
         vin_sz:response.x.vin_sz,
+        
         vout_sz:response.x.vout_sz,
+        
         size:response.x.size,
+        
         relayed_by:response.x.relayed_by,
+        
         tx_index:response.x.tx_index,
         time:response.x.time
