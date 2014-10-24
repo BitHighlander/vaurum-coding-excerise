@@ -19,7 +19,7 @@ var mysql =  require('mysql');
 var connection =  mysql.createConnection({
   	host : "localhost",
   	user : "blocker",
-  	password: "UpP8GuEfBpCQ3PQK"
+  	password: "************"
   });
 
 connection.connect();
