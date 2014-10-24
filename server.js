@@ -91,14 +91,14 @@ if( response.op == "utx")
 	response.amount = amount / 100000000;
 
 	var data = {
-        hash:response.x.hash,
-        btc_sent:response.amount,
-        vin_sz:response.x.vin_sz,
-        vout_sz:response.x.vout_sz,
-        size:response.x.size,
-        relayed_by:response.x.relayed_by,
-        tx_index:response.x.tx_index,
-        time:response.x.time
+	        hash:response.x.hash,
+	        btc_sent:response.amount,
+	        vin_sz:response.x.vin_sz,
+	        vout_sz:response.x.vout_sz,
+	        size:response.x.size,
+	        relayed_by:response.x.relayed_by,
+	        tx_index:response.x.tx_index,
+	        time:response.x.time
         };
 	insertTxData(data);
 	//console.log('received', response);
@@ -123,20 +123,20 @@ if( response.op == "block")
 		//insertConfirmationData();
 
 	var data = {
-        hash:response.x.hash,
-        nTx: response.x.nTx,
-        totalBTCSent: response.x.totalBTCSent,
-        estimatedBTCSent: response.x.estimatedBTCSent,
-        reward: response.x.reward,
-        size: response.x.size,
-        blockIndex: response.x.blockIndex,
-        prevBlockIndex: response.x.prevBlockIndex,
-        height: response.x.height,
-        mrklRoot: response.x.mrklRoot,
-        version: response.x.version,
-        time: response.x.time,
-        bits: response.x.bits,
-        nonce: response.x.nonce
+	        hash:response.x.hash,
+	        nTx: response.x.nTx,
+	        totalBTCSent: response.x.totalBTCSent,
+	        estimatedBTCSent: response.x.estimatedBTCSent,
+	        reward: response.x.reward,
+	        size: response.x.size,
+	        blockIndex: response.x.blockIndex,
+	        prevBlockIndex: response.x.prevBlockIndex,
+	        height: response.x.height,
+	        mrklRoot: response.x.mrklRoot,
+	        version: response.x.version,
+	        time: response.x.time,
+	        bits: response.x.bits,
+	        nonce: response.x.nonce
         };
 	insertBlockData(data);
 	//console.log('received', response);
