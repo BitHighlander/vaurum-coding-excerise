@@ -35,12 +35,15 @@ Lets Get started
 -------------------
 
 Ubuntu Server 14.04
+
 ```
 sudo apt-get update
 sudo apt-get install tasksel
 sudo tasksel
 ````
+
 Install LAMP and set up your MySQL database
+
 
 ````
 sudo apt-get install phpmyadmin
@@ -53,13 +56,20 @@ npm install
 ```
 
 We are now ready to set the mysql config
-browse
+
+open browser too
+
+
 *your ip*/phpmyadmin
 
 copy/paste blockerDB.sql
+
 create db
+
 verify
+
 go to privileges
+
 add new user
 
 username: blocker
