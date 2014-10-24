@@ -8,7 +8,7 @@
                                   
 				-Highlander
 
-implenting Blockchain.info's Websocket to record real time Blokchain Data.
+implenting Blockchain.info's Websocket to record real time Blockchain Data.
 */
 
 
