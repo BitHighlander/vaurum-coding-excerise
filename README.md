@@ -173,3 +173,12 @@ Avaible Transaction data
         tx_index:response.x.tx_index,
         
         time:response.x.time
+
+
+
+TODO
+-------
+
+[] use merkle roots to verify unconfirmed transactions without need of a full chain (purge bad transactions)
+[] Check block height from multiple sources to verify accuracy of blockchain.info's api
+[] subscribe to a local bitcoind or oblisk server. 
