@@ -34,9 +34,21 @@ with a little help from ubuntu LAMP for the query example,
 Lets Get started
 -------------------
 
+Ubuntu Server 14.04
+```
+sudo apt-get update
+sudo apt-get install tasksel
+sudo tasksel
+````
+Install LAMP and set up your MySQL database
+
+````
+sudo apt-get install phpmyadmin
+sudo apt-get install nodejs
+sudo apt-get install npm
 cd ~
 Git Clone https://github.com/BitHighlander/vaurum-coding-excerise
 npm install
-
+```
 
 
