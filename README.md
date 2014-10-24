@@ -158,7 +158,8 @@ Each block contains a list of confirmed transactions, To view what transactions 
 Avaible Transaction data
 ------------------------
 
- hash:response.x.hash,
+        hash:response.x.hash,
+        
         btc_sent:response.amount,
         
         vin_sz:response.x.vin_sz,
@@ -170,4 +171,5 @@ Avaible Transaction data
         relayed_by:response.x.relayed_by,
         
         tx_index:response.x.tx_index,
+        
         time:response.x.time
