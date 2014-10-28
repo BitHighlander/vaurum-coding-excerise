@@ -46,7 +46,7 @@ $(function () {
 	// Once initially, and then every 30 sec
 
 	getData();
-	setInterval(getData, 1000*30);
+	setInterval(getData, 1000*10);
 
 
 	// This function sends an ajax get request to /online,
