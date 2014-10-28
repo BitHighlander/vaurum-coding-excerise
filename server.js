@@ -9,7 +9,27 @@
 				-Highlander
 
 implenting Blockchain.info's Websocket to record real time Blockchain Data.
+
+Powered by webGL
 */
+
+//Express Webserver
+
+var express = require('express'),
+	request = require('request'),
+	isbot = require('is-bot');
+
+app = express();
+
+app.use(express.static(__dirname + '/public'));
+
+var users = {};
+
+// This setting is needed on heroku so that we have access to
+// the visitor's ip addresses. Remove it if you don't use heroku:
+
+app.enable('trust proxy');
+
 
 
 //Store into mysql
@@ -141,6 +161,160 @@ if( response.op == "block")
 	insertBlockData(data);
 	//console.log('received', response);
 	console.log('block', response);
-	
+
+
+	//Push block data to WebGL map
+	//get IP
+	ip = response.x.foundBy.ip;
+	//Get location data from IP
+
+	request('http://www.geoplugin.net/json.gp?ip=' + ip, function (e, r, body) {
+		try {
+			var data = JSON.parse(body);
+			console.log('received', data);
+		    }
+		
+		catch(e){
+			return;
+		    }
+		if (!e && r.statusCode == 200) {
+		
+		if(data.geoplugin_countryName){
+		// Store the users in an object with their ip as a unique key
+			users[ip]={
+				timestamp : new Date(),
+				latitude : data.geoplugin_latitude,
+				longitude: data.geoplugin_longitude,
+				country: data.geoplugin_countryName,
+				hash:response.x.hash,
+			        nTx: response.x.nTx,
+			        totalBTCSent: response.x.totalBTCSent,
+			        estimatedBTCSent: response.x.estimatedBTCSent,
+			        reward: response.x.reward,
+			        size: response.x.size,
+			        blockIndex: response.x.blockIndex,
+			        prevBlockIndex: response.x.prevBlockIndex,
+			        height: response.x.height,
+			        mrklRoot: response.x.mrklRoot,
+			        version: response.x.version,
+			        time: response.x.time,
+			        bits: response.x.bits,
+			        nonce: response.x.nonce
+				
+			};
+		}
+		}
+		if(e){
+			console.error(e);
+			console.log('error', e);
+		}
+	});
+
 }
+});
+
+//Push data to api
+app.get('/online', function (req, res) {
+
+	var data = [],
+	list = [];
+
+	// How many minutes to consider an ip address online after /ping is visited
+    // Currently it if 5 minutes. Feel free to change it
+
+	var onlineInMinutes = 5;
+
+	for (var key in users) {
+
+		if (!users.hasOwnProperty(key)) continue;
+
+		if (new Date - users[key]['timestamp'] < 1000 * 60 * onlineInMinutes){
+
+            data.push({
+                latitude: users[key]['latitude'],
+                longitude: users[key]['longitude'],
+                country : users[key]['country'],
+                hash:users[key]['hash'],
+                nTx:users[key]['nTx'],
+                totalBTCSent:users[key]['totalBTCSent'],
+                estimatedBTCSent:users[key]['estimatedBTCSent'],
+                reward:users[key]['reward'],
+                size:users[key]['size'],
+                blockIndex:users[key]['blockIndex'],
+                prevBlockIndex:users[key]['prevBlockIndex'],
+                height:users[key]['height'],
+                mrklRoot:users[key]['mrklRoot'],
+                version:users[key]['version'],
+                time:users[key]['time'],
+                bits:users[key]['bits'],
+                height:users[key]['height'],
+                nonce:users[key]['nonce']
+            });
+
+
+        }
+
+        // If a user hasn't visited for more than 6 hours
+        // remove him from the users array.
+        if (new Date - users[key]['timestamp'] > 1000*60*60*6){
+            delete users[key];
+        }
+
+	}
+
+	// Iterate all entries,
+	// remove those with repeating country names
+	// and place them in an array of objects with a corresponding count number
+
+	data.forEach(function (a) {
+
+		// If the country is already in the list, increase the count and return.
+
+        for(var i=0; i<list.length; i++){
+			if(list[i].countryName == a.country) {
+				list[i].usersOnline++;
+				return;
+			}
+		}
+
+		// Otherwise, add a new country to the list
+
+		list.push({
+			latitude : a.latitude,
+			longitude : a.longitude,
+			countryName: a.country,
+			usersOnline: 1,
+			//hash:response.x.hash
+		});
+
+	});
+
+
+	// Sort the countries by number of users online
+
+	list.sort(function (a,b) {
+
+		if (a.usersOnline > b.usersOnline)
+			return -1;
+		if (a.usersOnline < b.usersOnline)
+			return 1;
+		return 0;
+
+	});
+
+	// Send our json response.
+	// coordinates contains the information about all users
+	// countriesList contains information without repeating country names and is sorted
+
+	res.send({
+		coordinates: data,
+		countriesList: list
+	});
+
+});
+
+
+//start server
+app.listen(process.env.PORT || 8005, function(){
+	console.log('server is up');
 });
