@@ -1,8 +1,9 @@
-vaurum-coding-excerise
+Blocker
 ======================
 
 Node.js Real Time Blockchain Data Subscription
 
+Now with WebGL real time global relay display
 
 Challenge
 -----------
@@ -27,7 +28,13 @@ More info: https://blockchain.info/api/api_websocket
 ws: a node.js websocket implementation
 More info: http://einaros.github.io/ws/
 
-with a little help from ubuntu LAMP for the query example,
+WebGL Globe
+more info: https://github.com/dataarts/webgl-globe
+
+Express web server:
+more info: http://expressjs.com/
+
+with a little help from ubuntu LAMP,
 
 
 
@@ -87,6 +94,11 @@ node server.js
 
 Let this run a bit and fill up with some data
 
+
+View the webpage!
+--------------------
+
+*your DNS/ip*:8005
 
 
 Ready to query the data!
