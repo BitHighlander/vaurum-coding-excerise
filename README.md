@@ -9,6 +9,9 @@ View Demo:
 http://207.12.89.77:8005/
 (This will not stay live long)
 
+
+![alt tag](https://github.com/BitHighlander/vaurum-coding-excerise/blob/master/public/img/blocker2.PNG)
+
 Challenge
 -----------
 
