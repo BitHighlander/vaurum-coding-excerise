@@ -97,8 +97,8 @@ Let this run a bit and fill up with some data
 
 View the webpage!
 --------------------
-
-*your DNS/ip*:8005
+open chrome or webGL compatible browser
+http://*******:8005
 
 
 Ready to query the data!
