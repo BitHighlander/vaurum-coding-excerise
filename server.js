@@ -254,11 +254,6 @@ app.get('/online', function (req, res) {
 
         }
 
-        // If a user hasn't visited for more than 6 hours
-        // remove him from the users array.
-        if (new Date - users[key]['timestamp'] > 1000*60*60*6){
-            delete users[key];
-        }
 
 	}
 
