@@ -5,6 +5,10 @@ Node.js Real Time Blockchain Data Subscription
 
 Now with WebGL real time global relay display
 
+View Demo:
+http://207.12.89.77:8005/
+(This will not stay live long)
+
 Challenge
 -----------
 
