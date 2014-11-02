@@ -5,7 +5,7 @@ Node.js Real Time Blockchain Data Subscription
 
 Now with WebGL real time global relay display
 
-
+Demo Server: http://207.12.89.77:3000/
 
 
 ![alt tag](https://github.com/BitHighlander/vaurum-coding-excerise/blob/master/public/img/blocker2.PNG)
