@@ -87,7 +87,7 @@ var WebSocket = require('ws') , ws = new WebSocket('ws://ws.blockchain.info/inv'
 
 //Open websocket
 ws.on('open', function() {
-    ws.send(JSON.stringify( {"op":"unconfirmed_sub"}));
+    //ws.send(JSON.stringify( {"op":"unconfirmed_sub"}));
     ws.send(JSON.stringify( {"op":"ping_block"}));
     ws.send(JSON.stringify( {"op":"blocks_sub"}));
 });
