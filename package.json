@@ -1,18 +1,17 @@
 {
-  "name": "blocker",
-  "description": "subscribe to blockchain data. Node.js, Mysql, express, webGL",
+  "name": "rest-crud",
+  "description": "REST CRUD Example Node.js & Mysql",
   "version": "0.0.1",
   "private": true,
   "main": "server.js",
   "dependencies": {
-    "ws":"*",
     "body-parser": "1.9.0",
     "ejs": "^1.0.0",
-    "express": "^4.8.7",
-    "is-bot": "0.0.1",
-    "request": "^2.40.0",
+    "express": "4.9.5",
     "express-myconnection": "*",
     "express-validator": "^2.6.0",
-    "mysql": "*"
+    "mysql": "*",
+    "request": "^2.40.0",
+    "is-bot": "0.0.1"
   }
 }
