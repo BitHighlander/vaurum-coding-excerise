@@ -15,6 +15,26 @@ html, body{
 	font:13px/1.35 'Open Sans', sans-serif;
 }
 
+/* unvisited link */
+a:link {
+    color: ##FFFFFF;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+    color: ##FFFFFF;
+}
+
 /*-------------------------
 	WebGL earth - globe
 --------------------------*/
