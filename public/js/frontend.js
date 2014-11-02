@@ -55,7 +55,7 @@ $(function () {
 
 	function getData() {
 		$.ajax({
-			url:    '/online',
+			url:    '/api/online',
 			success: function(data) {
 				countriesList = data.countriesList;
 				locations = data.coordinates;
@@ -144,8 +144,8 @@ $(function () {
 			console.log("my object:", a)
 			markers.push(WE.marker([a.latitude, a.longitude]).addTo(earth).bindPopup(
 					"This block was relayed by <b>" + a.country
-				      + "<br> hash:" + a.hash
-				      + "<br> nTx:" + a.nTx
+				      + "<br> <a href='/api/user'> hash:" + a.hash
+				      + "</a><br> nTx:" + a.nTx
 				      + "<br> totalBTCSent:" + ( a.totalBTCSent / 100000000)
 				      + "<br> reward:" + ( a.reward / 100000000 )
 				      + "<br> size:" + a.size + " (bytes)"
